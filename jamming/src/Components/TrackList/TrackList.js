@@ -6,11 +6,9 @@ class TrackList extends React.Component {
 	render() {
 		return (
 			<div className="TrackList">
-			    <ul>
-			    	<li>Test</li>
-			    	<li>Test 2</li>
-			    	<li>Test 3</li>
-			    </ul>
+			    this.props.tracks.map(track => {
+
+			    });
 			</div>
 		);
 	}
