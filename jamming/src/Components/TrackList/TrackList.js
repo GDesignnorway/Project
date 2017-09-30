@@ -10,8 +10,9 @@ class TrackList extends React.Component {
 			    this.props.tracks.map(track => {
 			    	this.props.track.name,
 			    	this.props.track.artist,
-			    	this.props.track.album
+			    	this.props.track.album,
 			    });
+			    <Track onAdd={this.props.onAdd} />
 			</div>
 		);
 	}
