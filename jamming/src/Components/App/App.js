@@ -17,6 +17,14 @@ class App extends Component {
         this.setState({ playlistTracks: tracks });
       }
     }
+
+    removeTrack(track) {
+      let removeTrack = playlistTracks.find(currentTrack => currentTrack.id === track.id);
+      if(removeTrack === track.id) {
+        tracks.splice(track);
+        this.setState({ playlistTracks: tracks});
+      }
+    }
   render() {
     return (
       <div>
