@@ -8,15 +8,15 @@ class App extends Component {
       searchResults: [],
       playlistName: 'New Playlist',
       playlistTracks: [name: "", artist: "", album: ""]
-    };
-    this.addTrack(track) {
+    }
+  }
+  addTrack(track) {
       let foundTrack = playlistTracks.find(currentTrack => currentTrack.id === track.id);
       if (foundTrack === undefined) {
         tracks.push(track);
         this.setState({ playlistTracks: tracks });
       }
     }
-  }
   render() {
     return (
       <div>

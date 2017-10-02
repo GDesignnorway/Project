@@ -3,6 +3,13 @@ import './Track.css';
 
 
 class SearchBar extends React.Component {
+	constructor(props) {
+		super(props);
+		this.addTrack = this.addTrack.bind(this);
+		addTrack(event) {
+			this.props.onAdd(this.props.track);
+		}
+	}
 	render() {
 		return (
 			<div className="Track">
@@ -10,7 +17,7 @@ class SearchBar extends React.Component {
 			    <h3><!-- track name will go here --></h3>
 			    <p><!-- track artist will go here--> | <!-- track album will go here --></p>
 			  </div>
-			  <a className="Track-action"><!-- + or - will go here --></a>
+			  <a className="Track-action" onClick={this.addTrack}><!-- + or - will go here --></a>
 			</div>
 		);
 	}
