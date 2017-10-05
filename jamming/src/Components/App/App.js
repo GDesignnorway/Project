@@ -9,9 +9,11 @@ class App extends Component {
       playlistName: 'New Playlist',
       playlistTracks: [name: "", artist: "", album: ""]
     }
+    removeTrack = removeTrack.bind(this);
+    updatePlaylistName = updatePlaylistName.bind(this);
   }
   addTrack(track) {
-      let foundTrack = playlistTracks.find(currentTrack => currentTrack.id === track.id);
+      let foundTrack = this.playlistTracks.find(currentTrack => currentTrack.id === track.id);
       if (foundTrack === undefined) {
         tracks.push(track);
         this.setState({ playlistTracks: tracks });
@@ -19,12 +21,17 @@ class App extends Component {
     }
 
     removeTrack(track) {
-      let removeTrack = playlistTracks.find(currentTrack => currentTrack.id === track.id);
-      if(removeTrack === track.id) {
-        tracks.splice(track);
-        this.setState({ playlistTracks: tracks});
-      }
+      let foundTrack = this.playlistTracks.find(currentTrack => currentTrack.id === track.id);
+      if(foundTrack) {
+        playlistTracks.splice(playlistTracks.indexOf(foundTrack))
+      }       
+      this.setState({ playlistTracks: tracks });
     }
+
+    updatePlaylistName(name) {
+      setState(input);
+    }
+
   render() {
     return (
       <div>
@@ -33,7 +40,7 @@ class App extends Component {
           <SearchBar />
           <div className="App-playlist">
            <SearchResults searchResults={this.state.searchResults} onAdd={this.addTrack}/>
-             <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks}/>
+             <Playlist playlistName={this.state.playlistName} playlistTracks={this.state.playlistTracks} onNameChange={updatePlaylistName} onRemove={this.removeTrack}/>
           </div>
         </div>
       </div>
